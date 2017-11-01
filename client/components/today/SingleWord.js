@@ -22,8 +22,8 @@ const styleSheet = {
   },
   text: {
     color: '#fff',
-    fontSize: '14rem',
-    margin: '-35px 0 35px',
+    fontSize: '12rem',
+    margin: '-25px 0 30px',
   },
 }
 

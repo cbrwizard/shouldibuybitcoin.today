@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles'
 import Grid from 'material-ui/Grid'
 
 import Question from './Question'
+import Credits from './Credits'
 import AnswerContainer from '../containers/today/AnswerContainer'
 
 const propTypes = {
@@ -12,8 +13,13 @@ const propTypes = {
 
 const styleSheet = {
   container: {
+    margin: 0,
     textAlign: 'center',
     width: '100%',
+  },
+  credits: {
+    margin: '0 0 10px',
+    width: '95%',
   },
   question: {
     margin: '30px 0 0',
@@ -22,6 +28,7 @@ const styleSheet = {
 
 /*
  * Is responsible for rendering the main components.
+ * TODO: make it look good on horizontal phones.
  */
 const App = ({ classes }) => (
   <Grid className={classes.container} container direction="column">
@@ -31,6 +38,9 @@ const App = ({ classes }) => (
     <Grid item>
       <AnswerContainer />
     </Grid>
+    <div className={`${classes.credits} h-position-bottom-center`}>
+      <Credits />
+    </div>
   </Grid>
 )
 
