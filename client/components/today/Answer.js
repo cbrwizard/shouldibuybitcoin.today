@@ -2,10 +2,12 @@ import React from 'react'
 import { func, object } from 'prop-types'
 
 import SingleWord from './SingleWord'
+import VoteButtons from './VoteButtons'
 
 const propTypes = {
   day: object.isRequired,
   onLoad: func.isRequired,
+  onVoteClick: func.isRequired,
 }
 
 /*
@@ -17,10 +19,11 @@ class Answer extends React.Component {
   }
 
   render() {
-    const { day } = this.props
+    const { day, onVoteClick } = this.props
     return (
       <div>
         <SingleWord shouldBuy={day.record.shouldBuy} />
+        <VoteButtons {...{ onVoteClick }} />
       </div>
     )
   }

@@ -22,17 +22,17 @@ const styleSheet = {
 * Is responsible for rendering the answer in a form of a single word.
 */
 const SingleWord = ({ classes, intl, shouldBuy }) => {
-  let answerId
+  let messageId
   if (shouldBuy === null) {
-    answerId = 'app.text.answer.singleWord.unknown'
+    messageId = 'app.text.answer.singleWord.unknown'
   } else if (shouldBuy) {
-    answerId = 'app.text.answer.singleWord.yes'
+    messageId = 'app.text.answer.singleWord.yes'
   } else {
-    answerId = 'app.text.answer.singleWord.no'
+    messageId = 'app.text.answer.singleWord.no'
   }
   return (
     <Typography className={classes.text} type="display4">
-      {intl.formatMessage({ id: answerId })}
+      {intl.formatMessage({ id: messageId })}
     </Typography>
   )
 }
