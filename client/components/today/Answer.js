@@ -24,7 +24,7 @@ class Answer extends React.Component {
     return (
       <div>
         <SingleWord shouldBuy={day.record.yesCount >= day.record.noCount} />
-        <VoteButtons {...{ onVoteClick }} />
+        <VoteButtons canVoteToday={day.canVoteToday} {...{ onVoteClick }} />
       </div>
     )
   }

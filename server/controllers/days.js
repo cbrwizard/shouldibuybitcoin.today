@@ -1,10 +1,9 @@
 import { lastDay } from 'server/queries/days'
 import { createDay } from 'server/services/days'
 import serializeDay from 'server/serializers/day'
-import {
-  setFailedResponse,
-} from 'server/lib/responses'
+import { setFailedResponse } from 'server/lib/responses'
 import shouldCreateDay from '../policies/shouldCreateDay'
+import canVoteToday from '../policies/canVoteToday'
 
 const get = async (ctx) => {
   try {
@@ -16,7 +15,10 @@ const get = async (ctx) => {
     }
     const serializedDay = serializeDay(day)
 
-    ctx.body = { day: serializedDay }
+    ctx.body = {
+      canVoteToday: await canVoteToday(day, ctx.sessionId),
+      record: serializedDay,
+    }
     return true
   } catch (err) {
     return setFailedResponse(ctx, err)

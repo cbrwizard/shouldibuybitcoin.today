@@ -1,6 +1,7 @@
 import {
   FETCH,
   SET_IS_LOADING,
+  SET_CAN_VOTE_TODAY,
   SET_DAY,
 } from 'client/constants/redux/day'
 
@@ -22,5 +23,12 @@ export const setDay = day => (
   {
     payload: day,
     type: SET_DAY,
+  }
+)
+
+export const setCanVoteToday = canVoteToday => (
+  {
+    payload: canVoteToday,
+    type: SET_CAN_VOTE_TODAY,
   }
 )

@@ -3,6 +3,7 @@
  */
 const initialState = {
   day: {
+    canVoteToday: false,
     isLoading: false,
     record: {},
   },

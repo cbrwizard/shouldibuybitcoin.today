@@ -3,6 +3,7 @@ import { lastDay } from 'server/queries/days'
 import { appendVote } from 'server/services/days'
 import setUpRavenClient from 'server/lib/setUpRavenClient'
 import getLogger from 'server/lib/getLogger'
+import serializeDay from 'server/serializers/day'
 import broadcastSetDay from '../broadcasts/broadcastSetDay'
 
 const logger = getLogger()
@@ -15,7 +16,7 @@ export const createVote = async (attributes, io) => {
     await appendVote(today, attributes.shouldBuy)
     logger.info(saveResult, 'Created a Vote')
 
-    await broadcastSetDay(io, await lastDay())
+    await broadcastSetDay(io, serializeDay(await lastDay()))
 
     return saveResult
   } catch (err) {

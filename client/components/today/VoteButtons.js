@@ -1,26 +1,26 @@
 import React from 'react'
-import { func } from 'prop-types'
+import { bool, func } from 'prop-types'
 import Grid from 'material-ui/Grid'
 
 import VoteButton from './VoteButton'
 
 const propTypes = {
+  canVoteToday: bool.isRequired,
   onVoteClick: func.isRequired,
 }
 
 /*
 * Is responsible for rendering the vote buttons together.
 */
-const VoteButtons = ({ onVoteClick }) => (
+const VoteButtons = ({ canVoteToday, onVoteClick }) => (
   <Grid container direction="column">
     <Grid item>
-      <VoteButton onClick={onVoteClick} positive />
+      <VoteButton disabled={!canVoteToday} onClick={onVoteClick} positive />
     </Grid>
     <Grid item>
-      <VoteButton onClick={onVoteClick} />
+      <VoteButton disabled={!canVoteToday} onClick={onVoteClick} />
     </Grid>
   </Grid>
-
 )
 
 VoteButtons.propTypes = propTypes
