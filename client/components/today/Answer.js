@@ -20,9 +20,10 @@ class Answer extends React.Component {
 
   render() {
     const { day, onVoteClick } = this.props
+
     return (
       <div>
-        <SingleWord shouldBuy={day.record.shouldBuy} />
+        <SingleWord shouldBuy={day.record.yesCount >= day.record.noCount} />
         <VoteButtons {...{ onVoteClick }} />
       </div>
     )

@@ -4,31 +4,22 @@ import getMongoose from 'server/lib/getMongoose'
 
 const { mongoose, db } = getMongoose()
 const { Schema } = mongoose
+const { ObjectId } = Schema.Types
 
 const voteSchema = new Schema({
-  noCount: {
-    default: 0,
+  _day: {
+    ref: 'Day',
     required: true,
-    type: Number,
+    type: ObjectId,
+  },
+  sessionId: {
+    required: true,
+    type: String,
   },
   shouldBuy: {
     default: false,
     required: true,
     type: Boolean,
-  },
-  startDate: {
-    default: () => {
-      const start = new Date()
-      start.setUTCHours(0, 0, 0, 0)
-      return start
-    },
-    required: true,
-    type: Date,
-  },
-  yesCount: {
-    default: 0,
-    required: true,
-    type: Number,
   },
 })
 

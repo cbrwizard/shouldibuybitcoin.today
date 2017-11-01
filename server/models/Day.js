@@ -11,11 +11,6 @@ const daySchema = new Schema({
     required: true,
     type: Number,
   },
-  shouldBuy: {
-    default: false,
-    required: true,
-    type: Boolean,
-  },
   startDate: {
     default: () => {
       const start = new Date()
