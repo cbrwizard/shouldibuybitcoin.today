@@ -1,6 +1,7 @@
 import React from 'react'
 import { object } from 'prop-types'
 import { withStyles } from 'material-ui/styles'
+import Grid from 'material-ui/Grid'
 
 import Question from './Question'
 import AnswerContainer from '../containers/today/AnswerContainer'
@@ -11,8 +12,11 @@ const propTypes = {
 
 const styleSheet = {
   container: {
-    background: '#333',
+    textAlign: 'center',
     width: '100%',
+  },
+  question: {
+    margin: '30px 0 0',
   },
 }
 
@@ -20,10 +24,14 @@ const styleSheet = {
  * Is responsible for rendering the main components.
  */
 const App = ({ classes }) => (
-  <main className={classes.container} >
-    <Question />
-    <AnswerContainer />
-  </main>
+  <Grid className={classes.container} container direction="column">
+    <Grid className={classes.question} item>
+      <Question />
+    </Grid>
+    <Grid item>
+      <AnswerContainer />
+    </Grid>
+  </Grid>
 )
 
 App.propTypes = propTypes

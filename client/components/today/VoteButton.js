@@ -1,29 +1,43 @@
 import React from 'react'
-import { bool, func } from 'prop-types'
+import { bool, func, object } from 'prop-types'
+import { withStyles } from 'material-ui/styles'
 import { injectIntl, intlShape } from 'react-intl'
 import Button from 'material-ui/Button'
 
 const propTypes = {
-  disabled: bool,
+  classes: object.isRequired,
   intl: intlShape.isRequired,
   onClick: func.isRequired,
   positive: bool,
 }
 const defaultProps = {
-  disabled: true,
   positive: false,
+}
+const styleSheet = {
+  button: {
+    '&:hover': {
+      backgroundColor: '#1f1f1f',
+    },
+    backgroundColor: '#333',
+    border: '1px solid #fff',
+    color: '#fff',
+  },
 }
 
 /*
 * Is responsible for rendering a single vote button.
 */
 const VoteButton = ({
-  disabled, intl, onClick, positive,
+  classes, intl, onClick, positive,
 }) => {
   const messageId = positive ? 'app.forms.vote.yes' : 'app.forms.vote.no'
 
   return (
-    <Button {...{ disabled }} onClick={() => onClick(positive)}>
+    <Button
+      className={classes.button}
+      onClick={() => onClick(positive)}
+      raised
+    >
       {intl.formatMessage({ id: messageId })}
     </Button>
   )
@@ -32,4 +46,4 @@ const VoteButton = ({
 VoteButton.propTypes = propTypes
 VoteButton.defaultProps = defaultProps
 
-export default injectIntl(VoteButton)
+export default injectIntl(withStyles(styleSheet)(VoteButton))
