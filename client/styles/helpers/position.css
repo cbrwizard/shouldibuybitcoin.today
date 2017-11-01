@@ -1,0 +1,31 @@
+.h-position-bottom-left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.h-position-top-center {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.h-position-top-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.h-position-bottom-right {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.h-position-bottom-center {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

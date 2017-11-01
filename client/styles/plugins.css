@@ -1,0 +1,37 @@
+/*
+  For react-color.
+ */
+.circle-picker div span div {
+  border: 1px solid #000;
+}
+
+/*
+  For uploadcare.
+ */
+.uploadcare--widget__button {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 2px;
+  text-transform: uppercase;
+  justify-content: center;
+  height: 36px;
+  padding: 0px 16px;
+  cursor: pointer;
+}
+.uploadcare--widget__button_type_open {
+  background: #2196F3;
+}
+.uploadcare--widget__button_type_open:hover {
+  background: #1976D2;
+}
+.uploadcare--widget__button_type_remove {
+  background: #FFEB3B;
+}
+.uploadcare--widget__button_type_remove:hover {
+  background: #FBC02D;
+}
+.uploadcare--widget__button_type_cancel {
+  background: #F44336;
+}
+.uploadcare--widget__button_type_cancel:hover {
+  background: #D32F2F;
+}

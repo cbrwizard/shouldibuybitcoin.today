@@ -1,0 +1,9 @@
+.h-center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h-center-text {
+  text-align: center;
+}
