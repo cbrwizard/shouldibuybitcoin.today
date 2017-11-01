@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl-redux'
 import ReduxToastr from 'react-redux-toastr'
 
-import AppContainer from 'client/containers/AppContainer'
+import App from './App'
 
 const propTypes = {
   store: object.isRequired,
@@ -16,9 +16,9 @@ const propTypes = {
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <div className="h-height-full" style={{ background: '#fff' }}>
+    <div className="h-height-full">
       <IntlProvider>
-        <AppContainer />
+        <App />
       </IntlProvider>
       <ReduxToastr />
     </div>

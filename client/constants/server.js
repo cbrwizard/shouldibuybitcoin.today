@@ -1,9 +1,1 @@
-export const GAME_SESSIONS_URL = `${process.env.API_BASE}/games`
-export const MESSAGES_URL = `${process.env.API_BASE}/messages`
-export const PLANS_URL = `${process.env.API_BASE}/plans`
-export const SESSIONS_URL = `${process.env.API_BASE}/sessions`
-export const SQUARES_URL = `${process.env.API_BASE}/squares`
-export const TERRITORIES_URL = `${process.env.API_BASE}/territories`
-export const TIME_URL = `${process.env.API_BASE}/time`
-export const USER_URL = `${process.env.API_BASE}/user`
-export const USERS_URL = `${process.env.API_BASE}/users`
+export const DAY_URL = `${process.env.API_BASE}/day`

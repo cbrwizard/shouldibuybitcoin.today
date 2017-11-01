@@ -1,9 +1,7 @@
-import messagesSaga from 'client/sagas/messagesSaga'
-import sessionsSaga from 'client/sagas/sessionsSaga'
+import daySaga from 'client/sagas/daySaga'
 
 export default function* () {
   yield [
-    messagesSaga(),
-    sessionsSaga(),
+    daySaga(),
   ]
 }

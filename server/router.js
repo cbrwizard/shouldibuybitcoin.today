@@ -8,6 +8,6 @@ const router = new Router()
 
 router
   .get('/', pagesController.get)
-  .get('/days/', daysController.get)
+  .get('/day/', daysController.get)
 
 export default router
