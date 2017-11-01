@@ -20,9 +20,6 @@ export const createDay = async () => {
 
 export const appendVote = async (day, shouldBuy) => {
   try {
-    console.log('in appendVote')
-    console.log('shouldBuy')
-    console.log(shouldBuy)
     const attributes = {}
     if (shouldBuy) {
       attributes.yesCount = day.yesCount + 1

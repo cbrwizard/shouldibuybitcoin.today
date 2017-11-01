@@ -2,8 +2,7 @@ import { pick } from 'ramda'
 
 import { lastDay } from 'server/queries/days'
 import { createVote } from 'server/services/votes'
-import serializeDay from 'server/serializers/day'
-import { setFailedResponse } from 'server/lib/responses'
+import { setCreatedResponse, setFailedResponse } from 'server/lib/responses'
 
 const filterPostParams = unfilteredParams =>
   pick(['shouldBuy'], unfilteredParams)
@@ -17,19 +16,9 @@ const post = async (ctx) => {
       _day: today,
       sessionId: ctx.sessionId,
     }
-    console.log(ctx.sessionId)
-    // console.log(ctx.session.cookie)
-    // console.log(this.session)
-    // console.log(ctx.req.session)
-    // console.log(ctx.req)
-    console.log('voteParams')
-    console.log(voteParams)
-    // cur: don't forget validation here.
-    await createVote(voteParams)
-    const serializedDay = serializeDay(await lastDay())
+    const createdVote = await createVote(voteParams, ctx.io)
 
-    ctx.body = { day: serializedDay }
-    return true
+    return setCreatedResponse(ctx, createdVote)
   } catch (err) {
     return setFailedResponse(ctx, err)
   }

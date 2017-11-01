@@ -17,21 +17,6 @@ export const setCreatedResponse = (ctx, saveResult) => {
   ctx.body = { id: saveResult.id }
 }
 
-export const setUpdatedResponse = (ctx) => {
-  ctx.status = 204
-}
-
-export const setUnauthorizedResponse = (ctx) => {
-  ctx.status = 401
-  ctx.body = {
-    details: {
-      email: 'email or password is wrong',
-      password: 'email or password is wrong',
-    },
-    type: 'Unauthorized',
-  }
-}
-
 export const setFailedResponse = (ctx, err = {}) => {
   if (err.name === 'ValidationError') {
     ctx.status = 422

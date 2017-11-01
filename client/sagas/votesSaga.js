@@ -1,16 +1,16 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, takeLatest } from 'redux-saga/effects'
 
 import { CREATE } from 'client/constants/redux/votes'
 import { post } from 'client/api/votes'
-import { setDay } from 'client/actions/day'
 import setUpRavenClient from 'client/lib/setUpRavenClient'
 
 const Raven = setUpRavenClient()
 
 function* create(action) {
   try {
-    const response = yield call(post, { shouldBuy: action.payload })
-    yield put(setDay(response.day))
+    yield call(post, { shouldBuy: action.payload })
+    // Notice that we don't accept the updated day here. Websockets
+    // will handle it.
   } catch (error) {
     Raven.captureException(error)
   }

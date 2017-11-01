@@ -54,7 +54,7 @@ module.exports = {
 
     "import/named": 2,
     "import/extensions": 0,
-    "import/prefer-default-export": 1,
+    "import/prefer-default-export": 0,
   },
   "settings": {
     "import/resolver": {
