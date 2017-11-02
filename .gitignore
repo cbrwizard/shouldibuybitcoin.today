@@ -12,6 +12,7 @@ config/.env.development
 config/.mongod.conf
 
 cli/backup.sh
+cli/deploy.sh
 
 *.rdb
 *.log
