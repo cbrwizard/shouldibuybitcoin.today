@@ -33,6 +33,12 @@ const Credits = ({ classes, intl }) => (
       {intl.formatMessage({ id: 'app.text.takeCare' })}
     </Typography>
     <Typography className={classes.text} type="caption">
+      {intl.formatMessage({ id: 'app.text.contact' })}
+      <a className={classes.link} href="mailto:cbrwizard@protonmail.com">
+        cbrwizard@protonmail.com
+      </a>.
+    </Typography>
+    <Typography className={classes.text} type="caption">
       Made by{' '}
       <a className={classes.link} href="http://cbrwizard.com/">
         cbrwizard
