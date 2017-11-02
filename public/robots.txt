@@ -1,4 +1,9 @@
 user-agent: *
 Allow: /$
 Disallow: /
+
 Allow: /public/
+Allow: /logo.png
+Allow: /logo_wide.png
+Allow: /manifest.json
+Allow: /sitemap.xml

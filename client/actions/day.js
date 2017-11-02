@@ -6,7 +6,7 @@ import {
 } from 'client/constants/redux/day'
 
 /*
- * Is responsible for handling the interaction with the Day.
+ * Is responsible for handling the interaction with the current day.
  */
 export const fetch = () => ({
   type: FETCH,

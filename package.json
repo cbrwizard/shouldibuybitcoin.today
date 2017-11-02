@@ -1,7 +1,7 @@
 {
-  "name": "picsWars",
+  "name": "shouldIBuyBitcoin.today",
   "version": "0.0.1",
-  "description": "A multiplayer risk game in your browser which you can play only once per week",
+  "description": "A simple website which answers a single question: should you buy bitcoin today or not? Powered by crowdsourcing.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint client/**/*.js server/**/*.js shared/**/*.js",
@@ -9,7 +9,8 @@
     "backend:production": "NODE_PATH=. NODE_ENV=production pm2 start processes.config.js --only backend --env production",
     "frontend:dev": "ENV=development NODE_ENV=development webpack-dev-server --inline",
     "frontend:production": "NODE_ENV=production webpack -p",
-    "db:dev": "mongod --config config/mongod.conf"
+    "db:dev": "mongod --config config/mongod.conf",
+    "deploy": ". cli/deploy.sh"
   },
   "keywords": [
     "bitcoin"
@@ -67,13 +68,9 @@
     "koa-socket": "^4.4.0",
     "kue": "^0.11.6",
     "material-ui": "^1.0.0-beta.19",
-    "material-ui-icons": "^1.0.0-alpha.3",
     "mongodb": "2.2.33",
     "mongoose": "4.12.5",
-    "mongoose-sanitizer": "^1.0.0",
     "mongoose-timestamp": "^0.6.0",
-    "mongoose-type-email": "^1.0.5",
-    "mongoose-type-url": "^1.0.2",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "2.0.8",
     "prop-types": "15.6.0",
@@ -91,9 +88,7 @@
     "react-redux-toastr": "7.1.6",
     "react-share": "^1.16.0",
     "react-tap-event-plugin": "^3.0.2",
-    "react-window-size-listener": "^1.0.8",
     "redux": "^3.6.0",
-    "redux-form": "7.1.2",
     "redux-logger": "3.0.6",
     "redux-raven-middleware": "^1.2.0",
     "redux-saga": "0.16.0",

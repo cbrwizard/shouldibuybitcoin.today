@@ -15,6 +15,11 @@ const propTypes = {
   percentVoted: string.isRequired,
   yesCount: number.isRequired,
 }
+const defaultProps = {
+  noCount: 0,
+  yesCount: 0,
+}
+
 const styleSheet = {
   text: {
     color: '#fff',
@@ -65,5 +70,6 @@ const SingleWord = ({
 }
 
 SingleWord.propTypes = propTypes
+SingleWord.defaultProps = defaultProps
 
 export default withStyles(styleSheet)(injectIntl(SingleWord))

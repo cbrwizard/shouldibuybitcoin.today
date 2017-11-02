@@ -2,7 +2,6 @@ import { createLogger } from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import createSocketIoMiddleware from 'redux-socket.io'
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
-import { reducer as formReducer } from 'redux-form'
 import { intlReducer } from 'react-intl-redux'
 import { reducer as toastrReducer } from 'react-redux-toastr'
 import io from 'socket.io-client'
@@ -51,7 +50,6 @@ const createStoreWithMiddleware = compose(
 
 const combinedReducer = combineReducers({
   app: rootReducer,
-  form: formReducer,
   intl: intlReducer,
   toastr: toastrReducer,
 })

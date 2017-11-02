@@ -26,7 +26,6 @@ module.exports = {
         '.git',
         'nginx',
         'dist',
-        'docker',
         'media',
       ],
       name: 'backend',

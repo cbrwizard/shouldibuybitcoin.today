@@ -6,15 +6,15 @@
 import Raven from 'raven-js'
 
 import ravenConfig from 'shared/lib/ravenConfig'
+
 const isProduction = require('shared/lib/isProduction')
 
 const setUpRavenClient = () =>
-  Raven
-  .config(
+  Raven.config(
     isProduction &&
-      `https://${process.env.SENTRY_PUBLIC_KEY}@sentry.io/${process.env.SENTRY_PROJECT_ID}`,
-      ravenConfig
-  )
-  .install()
+      `https://${process.env.SENTRY_PUBLIC_KEY}@sentry.io/${process.env
+        .SENTRY_PROJECT_ID}`,
+    ravenConfig
+  ).install()
 
 export default setUpRavenClient

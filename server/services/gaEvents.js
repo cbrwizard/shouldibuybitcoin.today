@@ -2,16 +2,7 @@ import setUpRavenClient from 'server/lib/setUpRavenClient'
 import getLogger from 'server/lib/getLogger'
 import getGA from 'server/lib/getGA'
 import isProduction from 'shared/lib/isProduction'
-import {
-  CLICKED_BECOME_PATREON,
-  GAME_SESSION_STARTED,
-  CORE_GAMEPLAY_ACCEPTANCE,
-  SQUARE_CAPTURED,
-  SECOND_TURN_MADE,
-  THIRD_TURN_MADE,
-  FIFTH_TURN_MADE,
-  EIGHTH_TURN_MADE,
-} from 'server/constants/metricNames'
+import { VOTED } from 'server/constants/metricNames'
 
 const logger = getLogger()
 const Raven = setUpRavenClient()
@@ -32,29 +23,8 @@ const recognizedEventParams = (metricName, userId) => {
 
 const getEventParams = (type, userId) => {
   switch (type) {
-    case CLICKED_BECOME_PATREON: {
-      return recognizedEventParams(CLICKED_BECOME_PATREON, userId)
-    }
-    case CORE_GAMEPLAY_ACCEPTANCE: {
-      return recognizedEventParams(CORE_GAMEPLAY_ACCEPTANCE, userId)
-    }
-    case GAME_SESSION_STARTED: {
-      return recognizedEventParams(GAME_SESSION_STARTED, userId)
-    }
-    case SQUARE_CAPTURED: {
-      return recognizedEventParams(SQUARE_CAPTURED, userId)
-    }
-    case SECOND_TURN_MADE: {
-      return recognizedEventParams(SECOND_TURN_MADE, userId)
-    }
-    case THIRD_TURN_MADE: {
-      return recognizedEventParams(THIRD_TURN_MADE, userId)
-    }
-    case FIFTH_TURN_MADE: {
-      return recognizedEventParams(FIFTH_TURN_MADE, userId)
-    }
-    case EIGHTH_TURN_MADE: {
-      return recognizedEventParams(EIGHTH_TURN_MADE, userId)
+    case VOTED: {
+      return recognizedEventParams(VOTED, userId)
     }
     default:
       throw new Error('unrecognized GA event type')

@@ -19,7 +19,6 @@ const styleSheet = {
   },
   credits: {
     margin: '0 0 10px',
-    width: '95%',
   },
   question: {
     margin: '30px 0 0',

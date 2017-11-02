@@ -15,14 +15,14 @@ const performanceHints = isProduction ? 'warning' : false
 
 const plugins = [
   new FaviconsWebpackPlugin({
-    logo: 'media/favicon.png',
+    logo: 'media/logo_100.png',
     prefix: 'icons/',
-    title: 'shouldibuybitcoin.io',
+    title: 'ShouldIBuyBitcoin.today',
   }),
   new HtmlWebpackPlugin({
     cache: false,
     template: 'client/templates/index.ejs',
-    title: 'shouldibuybitcoin.io',
+    title: 'ShouldIBuyBitcoin.today',
   }),
   new Dotenv({
     path: dotEnvFilePath,

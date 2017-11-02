@@ -1,13 +1,13 @@
 {
   "name": "ShouldIBuyBitcoin.today",
   "short_name": "shouldibuybitcoin",
-  "description": "A turn-based strategy game which you can play in your browser with anybody in the world. Capture squares and draw pixel art on top of them! The trick is that you can play only 10 turns per day, so every turn is important and everybody is equal.",
+  "description": "A simple website which answers a single question: should you buy bitcoin today or not? Powered by crowdsourcing.",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
   "orientation": "any",
   "start_url": "/?utm_source=homescreen",
-  "background_color": "#4285f4",
+  "background_color": "#1e1e1e",
   "icons": [
     {
       "src": "../dist/icons/android-chrome-36x36.png",
