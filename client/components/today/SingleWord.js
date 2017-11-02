@@ -1,25 +1,21 @@
 import React from 'react'
-import { bool, object, string } from 'prop-types'
+import { bool, number, object, string } from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import { injectIntl, intlShape } from 'react-intl'
 import Typography from 'material-ui/Typography'
+
+import VoteResults from './VoteResults'
 
 const propTypes = {
   canVoteToday: bool.isRequired,
   classes: object.isRequired,
   intl: intlShape.isRequired,
   isLoading: bool.isRequired,
+  noCount: number.isRequired,
   percentVoted: string.isRequired,
-  shouldBuy: bool.isRequired,
+  yesCount: number.isRequired,
 }
 const styleSheet = {
-  join: {
-    color: '#fff',
-    margin: '10px 0 0',
-  },
-  note: {
-    color: '#ccc',
-  },
   text: {
     color: '#fff',
     fontSize: '12rem',
@@ -37,41 +33,32 @@ const SingleWord = ({
   intl,
   isLoading,
   percentVoted,
-  shouldBuy,
+  noCount,
+  yesCount,
 }) => {
-  let messageId
-  if (isLoading) {
-    messageId = 'app.text.answer.singleWord.unknown'
-  } else if (shouldBuy) {
-    messageId = 'app.text.answer.singleWord.yes'
+  let singleWordMessageId
+  if (isLoading || noCount === yesCount) {
+    singleWordMessageId = 'app.text.answer.singleWord.unknown'
+  } else if (yesCount > noCount) {
+    singleWordMessageId = 'app.text.answer.singleWord.yes'
   } else {
-    messageId = 'app.text.answer.singleWord.no'
+    singleWordMessageId = 'app.text.answer.singleWord.no'
   }
 
-  const voteTooMessageId = canVoteToday
-    ? 'app.text.answer.voteToo'
-    : 'app.text.answer.voteTomorrow'
   return (
     <div>
       <Typography className={classes.text} type="display4">
-        {intl.formatMessage({ id: messageId })}
+        {intl.formatMessage({ id: singleWordMessageId })}
       </Typography>
       {!isLoading && (
-        <div>
-          <Typography className={classes.note} type="subheading">
-            {intl.formatMessage(
-              {
-                id: 'app.text.answer.webVoted',
-              },
-              {
-                percentVoted,
-              }
-            )}
-          </Typography>
-          <Typography className={classes.join} type="subheading">
-            {intl.formatMessage({ id: voteTooMessageId })}
-          </Typography>
-        </div>
+        <VoteResults
+          {...{
+            canVoteToday,
+            noCount,
+            percentVoted,
+            yesCount,
+          }}
+        />
       )}
     </div>
   )

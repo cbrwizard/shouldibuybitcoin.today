@@ -8,7 +8,7 @@ const shouldCreateDay = async () => {
   today.setUTCHours(0, 0, 0, 0)
   const lastRecord = await lastDay()
 
-  return !lastRecord || today < lastRecord
+  return !lastRecord || today > lastRecord.startDate
 }
 
 export default shouldCreateDay

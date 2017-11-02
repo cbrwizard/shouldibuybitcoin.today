@@ -30,7 +30,8 @@ class Answer extends React.Component {
           <SingleWord
             canVoteToday={day.canVoteToday}
             isLoading={day.isLoading}
-            shouldBuy={day.record.yesCount >= day.record.noCount}
+            noCount={day.record.noCount}
+            yesCount={day.record.yesCount}
             {...{ percentVoted }}
           />
         </Grid>
