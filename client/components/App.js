@@ -12,8 +12,12 @@ const propTypes = {
 }
 
 const styleSheet = {
+  answer: {
+    flex: 1,
+  },
   container: {
     margin: 0,
+    minHeight: '100vh',
     textAlign: 'center',
     width: '100%',
   },
@@ -31,15 +35,15 @@ const styleSheet = {
  */
 const App = ({ classes }) => (
   <Grid className={classes.container} container direction="column">
-    <Grid className={classes.question} item>
+    <Grid className={classes.question} component="header" item>
       <Question />
     </Grid>
-    <Grid item>
+    <Grid className={classes.answer} item>
       <AnswerContainer />
     </Grid>
-    <div className={`${classes.credits} h-position-bottom-center`}>
+    <Grid component="footer" className={classes.credits}>
       <Credits />
-    </div>
+    </Grid>
   </Grid>
 )
 
