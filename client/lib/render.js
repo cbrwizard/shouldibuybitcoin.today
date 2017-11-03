@@ -10,6 +10,7 @@ import ReactGA from 'react-ga'
 import initializeGA from 'client/lib/initializeGA'
 
 const isProduction = require('shared/lib/isProduction')
+global.Intl = require('intl')
 
 if (isProduction) {
   initializeGA()
