@@ -5,7 +5,9 @@ import Grid from 'material-ui/Grid'
 
 import Question from './Question'
 import Credits from './Credits'
+import BitcoinWidget from './today/BitcoinWidget'
 import AnswerContainer from '../containers/today/AnswerContainer'
+import { MOBILE_WIDTH } from '../constants/styling'
 
 const propTypes = {
   classes: object.isRequired,
@@ -22,9 +24,12 @@ const styleSheet = {
     width: '100%',
   },
   credits: {
-    margin: '0 0 10px',
+    margin: '25px 0 10px',
   },
   question: {
+    [`@media only screen and (max-width: ${MOBILE_WIDTH}px)`]: {
+      margin: '10px 0 0',
+    },
     margin: '30px 0 0',
   },
 }
@@ -35,6 +40,7 @@ const styleSheet = {
  */
 const App = ({ classes }) => (
   <Grid className={classes.container} container direction="column">
+    <BitcoinWidget />
     <Grid className={classes.question} component="header" item>
       <Question />
     </Grid>

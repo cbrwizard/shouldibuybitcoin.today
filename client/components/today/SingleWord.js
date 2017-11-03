@@ -5,15 +5,16 @@ import { injectIntl, intlShape } from 'react-intl'
 import Typography from 'material-ui/Typography'
 
 import VoteResults from './VoteResults'
+import { MOBILE_WIDTH } from '../../constants/styling'
 
 const propTypes = {
   canVoteToday: bool.isRequired,
   classes: object.isRequired,
   intl: intlShape.isRequired,
   isLoading: bool.isRequired,
-  noCount: number.isRequired,
+  noCount: number,
   percentVoted: string.isRequired,
-  yesCount: number.isRequired,
+  yesCount: number,
 }
 const defaultProps = {
   noCount: 0,
@@ -22,6 +23,10 @@ const defaultProps = {
 
 const styleSheet = {
   text: {
+    [`@media only screen and (max-width: ${MOBILE_WIDTH}px)`]: {
+      fontSize: '10rem',
+      margin: '-40px 0 0',
+    },
     color: '#fff',
     fontSize: '12rem',
     margin: '-25px 0 30px',

@@ -10,7 +10,7 @@ const propTypes = {
 }
 const styleSheet = {
   container: {
-    width: '95%',
+    padding: '0 5px',
   },
   link: {
     '&:hover': {
@@ -28,7 +28,7 @@ const styleSheet = {
 * TODO: localize text, pass links as constants.
 */
 const Credits = ({ classes, intl }) => (
-  <div className="container">
+  <div className={classes.container}>
     <Typography className={classes.text} type="caption">
       {intl.formatMessage({ id: 'app.text.takeCare' })}
     </Typography>

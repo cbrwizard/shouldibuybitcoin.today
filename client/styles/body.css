@@ -11,4 +11,5 @@ main,
 
 body {
   background: #1e1e1e;
+	min-width: 320px;
 }
