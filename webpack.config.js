@@ -15,7 +15,7 @@ const performanceHints = isProduction ? 'warning' : false
 
 const plugins = [
   new FaviconsWebpackPlugin({
-    logo: 'media/logo_100.png',
+    logo: 'media/logo_256.png',
     prefix: 'icons/',
     title: 'ShouldIBuyBitcoin.today',
   }),

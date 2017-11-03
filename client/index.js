@@ -2,6 +2,7 @@
  * An entry point for both styles and scripts.
  */
 import 'babel-polyfill'
+import 'whatwg-fetch'
 
 import 'client/styles/index'
 import render from 'client/lib/render'
