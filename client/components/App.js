@@ -1,5 +1,5 @@
 import React from 'react'
-import { object } from 'prop-types'
+import { bool, object } from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import Grid from 'material-ui/Grid'
 
@@ -11,6 +11,7 @@ import { MOBILE_WIDTH } from '../constants/styling'
 
 const propTypes = {
   classes: object.isRequired,
+  isNode: bool.isRequired,
 }
 
 const styleSheet = {
@@ -38,21 +39,33 @@ const styleSheet = {
  * Is responsible for rendering the main components.
  * TODO: make it look good on horizontal phones.
  */
-const App = ({ classes }) => (
-  <Grid className={classes.container} container direction="column">
-    <BitcoinWidget />
-    <Grid className={classes.question} component="header" item>
-      <Question />
-    </Grid>
-    <Grid className={classes.answer} item>
-      <AnswerContainer />
-    </Grid>
-    <Grid component="footer" className={classes.credits}>
-      <Credits />
-    </Grid>
-  </Grid>
-)
+class App extends React.Component {
+  componentDidMount() {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.getElementById('jss-server-side')
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles)
+    }
+  }
 
+  render() {
+    const { classes, isNode } = this.props
+    return (
+      <Grid className={classes.container} container direction="column">
+        <BitcoinWidget isNode={isNode} />
+        <Grid className={classes.question} component="header" item>
+          <Question />
+        </Grid>
+        <Grid className={classes.answer} item>
+          <AnswerContainer />
+        </Grid>
+        <Grid component="footer" className={classes.credits}>
+          <Credits />
+        </Grid>
+      </Grid>
+    )
+  }
+}
 App.propTypes = propTypes
 
 export default withStyles(styleSheet)(App)

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { fetch } from 'client/actions/day'
+// import { fetch } from 'client/actions/day'
 import { create } from 'client/actions/votes'
 import getPercentVoted from 'client/selectors/getPercentVoted'
 import Answer from '../../components/today/Answer'
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
-    dispatch(fetch())
+  //   dispatch(fetch())
   },
   onVoteClick: (shouldBuy) => {
     dispatch(create(shouldBuy))

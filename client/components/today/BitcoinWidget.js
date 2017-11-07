@@ -1,5 +1,5 @@
 import React from 'react'
-import { object } from 'prop-types'
+import { bool, object } from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 
 import { MOBILE_WIDTH } from '../../constants/styling'
@@ -9,6 +9,7 @@ const BITCOIN_WIDGET_SRC =
 
 const propTypes = {
   classes: object.isRequired,
+  isNode: bool.isRequired,
 }
 const styleSheet = {
   bitcoin: {
@@ -33,12 +34,14 @@ const styleSheet = {
  */
 class BitcoinWidget extends React.Component {
   componentWillMount() {
-    const script = document.createElement('script')
+    if (!this.props.isNode) {
+      const script = document.createElement('script')
 
-    script.src = BITCOIN_WIDGET_SRC
-    script.async = true
+      script.src = BITCOIN_WIDGET_SRC
+      script.async = true
 
-    document.body.appendChild(script)
+      document.body.appendChild(script)
+    }
   }
 
   render() {

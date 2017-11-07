@@ -1,4 +1,3 @@
-/* eslint camelcase: 0 */
 /*
  * Is responsible for rendering the whole app.
  */
@@ -7,6 +6,7 @@ import { object } from 'prop-types'
 import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl-redux'
 import ReduxToastr from 'react-redux-toastr'
+import isNode from 'is-node'
 
 import App from './App'
 
@@ -16,9 +16,9 @@ const propTypes = {
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <div className="h-height-full">
+    <div>
       <IntlProvider>
-        <App />
+        <App isNode={isNode} />
       </IntlProvider>
       <ReduxToastr />
     </div>

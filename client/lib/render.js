@@ -3,7 +3,7 @@
  * Is responsible for rendering the whole app.
  */
 import React from 'react'
-import { render as reactDomRender } from 'react-dom'
+import { hydrate } from 'react-dom'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import ReactGA from 'react-ga'
 
@@ -22,7 +22,6 @@ injectTapEventPlugin()
 
 require('intl-messageformat/dist/locale-data/en')
 
-
 /**
  * Is responsible for rendering the whole app in the window.
  * Also turns on Google Analytics.
@@ -33,7 +32,7 @@ const render = (Root, store) => {
     ReactGA.pageview(window.location.pathname + window.location.search)
   }
 
-  return reactDomRender(
+  return hydrate(
     <Root store={store} />,
     document.getElementById('root')
   )

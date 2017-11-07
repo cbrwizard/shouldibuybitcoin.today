@@ -36,7 +36,7 @@ const SomebodyVoted = ({
 
   return (
     <div>
-      <Typography className={classes.note} type="subheading">
+      <Typography className={classes.note} type="subheading" component="h2">
         {intl.formatMessage(
           {
             id: webVotedMessageId,
