@@ -8,6 +8,7 @@ const router = new Router()
 
 router
   .get('/', pagesController.get)
+  .get('/eth', daysController.eth)
   .get('/day', daysController.get)
   .post('/votes', votesController.post)
 
